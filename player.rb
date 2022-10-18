@@ -8,22 +8,17 @@ class Player
   end
 
   def round 
-    @questions = { 
-      'What is 3 * 10 equal?' => '30',
-      'What is 5 + 2 - 4 / 1 equal?' => '2',
-      'what is 100 / 2 + 5 equal?' => '55',
-      'what is 10 / 5 equal?' => '2',
-      'what is the square root of 4?' => '2',
-      'what is 8 time 8 time 8 time 2 equal?' => '1024'
-
-    } 
+    num1 = rand(1..30)
+    num2 = rand(1..30)
+    @question = "What does #{num1} times #{num2} equal?"
+    @answer = num1 * num2
 
     random_num = rand(0...5)
 
-    puts "Player ${self.name}: #{@questions.keys[random_num]}"
-    input = gets.chomp 
+    puts "Player #{self.name}: #{@question}"
+    input = gets.chomp.to_i
 
-    if input == @questions.keys[random_num]
+    if input == @answer
       puts "Thats the correct answer"
     else 
       puts "Sorry You lost a life"

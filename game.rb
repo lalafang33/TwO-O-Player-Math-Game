@@ -1,7 +1,7 @@
 class Game 
   attr_accessor = :player_1, :player_2 
 
-  def player 
+  def initialize(player_1, player_2) 
     @player_1 = player_1 
     @player_2 = player_2 
   end
@@ -10,14 +10,14 @@ class Game
 
   def start 
     while @player_1.lives > 0 && @player_2.lives > 0 do 
-      @player_1.play
+      @player_1.round
       puts "P1: #{@player_1.lives}/3 vs P2: #{@player_2.lives}/3"
       if @player_1.lives == 0 
         break 
       end
       puts "----- NEW TURN -----"
 
-      @player2.play
+      @player_2.round
       puts "P1: #{@player_1.lives}/3 vs P2: #{@player_2.lives}/3"
     
       if @player_2.lives == 0
